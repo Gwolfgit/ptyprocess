@@ -24,9 +24,7 @@ from .util import which, PtyProcessError
 _platform = sys.platform.lower()
 
 # Solaris uses internal __fork_pty(). All others use pty.fork().
-_is_solaris = (
-    _platform.startswith('solaris') or
-    _platform.startswith('sunos'))
+_is_solaris = _platform.startswith(('solaris', 'sunos'))
 
 if _is_solaris:
     use_native_pty_fork = False
